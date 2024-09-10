@@ -14,8 +14,9 @@ public class PriorityEvent extends CalendarEvent{
 		super(description, location, startTime, endTime);
 	}
 
+
 	@Override
-	public void sheduleEvent(MeetingCalendar calendar) {
+	public void scheduleEvent(MeetingCalendar calendar) {
 		// TODO Auto-generated method stub
 		
 	}

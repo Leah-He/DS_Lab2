@@ -18,11 +18,6 @@ public class WeeklyEvent extends CalendarEvent{
 		this.setRepeatUntil(repeatUntil);
 	}
 
-	@Override
-	public void sheduleEvent(MeetingCalendar calendar) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	public GregorianCalendar getRepeatUntil() {
 		return repeatUntil;
@@ -30,6 +25,12 @@ public class WeeklyEvent extends CalendarEvent{
 
 	public void setRepeatUntil(GregorianCalendar repeatUntil) {
 		this.repeatUntil = repeatUntil;
+	}
+
+	@Override
+	public void scheduleEvent(MeetingCalendar calendar) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

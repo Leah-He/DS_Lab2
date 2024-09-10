@@ -12,9 +12,10 @@ public class OneTimeEvent extends CalendarEvent{
 	public OneTimeEvent(String description, String location, GregorianCalendar startTime, GregorianCalendar endTime) {
 		super(description, location, startTime, endTime);
 	}
-		
+
+
 	@Override
-	public void sheduleEvent(MeetingCalendar calendar) {
+	public void scheduleEvent(MeetingCalendar calendar) {
 		// TODO Auto-generated method stub
 		
 	}

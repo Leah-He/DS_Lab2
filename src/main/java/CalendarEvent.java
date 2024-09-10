@@ -73,6 +73,6 @@ public abstract class CalendarEvent {
 	public CalendarEvent() {
 		//Constructors
 	}
-	public abstract void sheduleEvent(MeetingCalendar calendar);
+	public abstract void scheduleEvent(MeetingCalendar calendar);
 	
 }

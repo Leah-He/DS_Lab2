@@ -21,12 +21,6 @@ public class MultiDayPerWeekEvent extends CalendarEvent{
 		this.days = days;
 	}
 
-	@Override
-	public void sheduleEvent(MeetingCalendar calendar) {
-		// TODO Auto-generated method stub
-		
-	}
-
 	public GregorianCalendar getRepeatUntil() {
 		return repeatUntil;
 	}
@@ -41,6 +35,12 @@ public class MultiDayPerWeekEvent extends CalendarEvent{
 
 	public void setDays(int[] days) {
 		this.days = days;
+	}
+
+	@Override
+	public void scheduleEvent(MeetingCalendar calendar) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
