@@ -76,3 +76,4 @@ public abstract class CalendarEvent {
 	public abstract void scheduleEvent(MeetingCalendar calendar);
 	
 }
+//https://www.baeldung.com/junit-5
