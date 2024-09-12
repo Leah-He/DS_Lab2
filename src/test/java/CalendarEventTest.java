@@ -24,6 +24,7 @@ class CalendarEventTest {
 	PriorityEvent priorityEvent;
 	WeeklyEvent weeklyEvent;
 	MultiDayPerWeekEvent multiDayPerWeekEvent;
+	int[] days;
 	
 
 	/**
@@ -34,12 +35,13 @@ class CalendarEventTest {
 		cal = new MeetingCalendar();
 		startTime = new GregorianCalendar(2024,8,12,8,30);
 		endTime = new GregorianCalendar(2024,8,12,8,30);
-		repeatUntil =new GregorianCalendar(2023,12,28);
+		repeatUntil =new GregorianCalendar(2024,12,28);
+		days = new int[] {1,3,5};
 		
-		oneTimeEvent = new OneTimeEvent("One time meeting", "R111", startTime, endTime);
-		priorityEvent = new PriorityEvent("Priority meeting", "R222", startTime, endTime);
-		weeklyEvent = new WeeklyEvent("Weekly meeting", "R333", startTime, endTime, repeatUntil);
-		
+		oneTimeEvent = new OneTimeEvent("One Time Meeting", "R111", startTime, endTime);
+		priorityEvent = new PriorityEvent("Priority Meeting", "R222", startTime, endTime);
+		weeklyEvent = new WeeklyEvent("Weekly Meeting", "R333", startTime, endTime, repeatUntil);
+		multiDayPerWeekEvent = new MultiDayPerWeekEvent("Multi Day Per Week Event", "R443", startTime, endTime, repeatUntil, days);
 	}
 
 
@@ -87,6 +89,7 @@ class CalendarEventTest {
 		assertEquals(startTime, multiDayPerWeekEvent.getStartTime());
 		assertEquals(endTime, multiDayPerWeekEvent.getEndTime());
 		assertEquals(repeatUntil, multiDayPerWeekEvent.getRepeatUntil());
+		assertEquals(days, multiDayPerWeekEvent.getDays());
 		
 		multiDayPerWeekEvent.scheduleEvent(cal);
 		assertEquals(multiDayPerWeekEvent, cal.findMeeting(startTime));
