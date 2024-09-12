@@ -39,9 +39,9 @@ class CalendarEventTest {
 		days = new int[] {1,3,5};
 		
 		oneTimeEvent = new OneTimeEvent("One Time Meeting", "R111", startTime, endTime);
-		priorityEvent = new PriorityEvent("Priority Meeting", "R222", startTime, endTime);
-		weeklyEvent = new WeeklyEvent("Weekly Meeting", "R333", startTime, endTime, repeatUntil);
-		multiDayPerWeekEvent = new MultiDayPerWeekEvent("Multi Day Per Week Event", "R443", startTime, endTime, repeatUntil, days);
+		priorityEvent = new PriorityEvent("Priority Event", "R222", startTime, endTime);
+		weeklyEvent = new WeeklyEvent("Weekly Event", "R333", startTime, endTime, repeatUntil);
+		multiDayPerWeekEvent = new MultiDayPerWeekEvent("Multi Day Per Week Event", "R444", startTime, endTime, repeatUntil, days);
 	}
 
 
