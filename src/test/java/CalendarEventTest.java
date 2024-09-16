@@ -30,7 +30,8 @@ class CalendarEventTest {
 	GregorianCalendar startTime1_9;
 	GregorianCalendar startTime1_10;
 	GregorianCalendar startTime1_11;
-	
+	GregorianCalendar startTime1_12;
+
 	GregorianCalendar startTime2;
 	GregorianCalendar endTime2;
 	
@@ -65,6 +66,8 @@ class CalendarEventTest {
 		startTime1_9 = new GregorianCalendar(2024,10,11,9,30);
 		startTime1_10 = new GregorianCalendar(2024,10,29,9,30);
 		startTime1_11 = new GregorianCalendar(2024,10,19,9,30);
+		startTime1_12 = new GregorianCalendar(2024,11,6,9,30);
+		
 		
 		startTime2 = new GregorianCalendar(2024,8,12,10,30);
 		endTime2 = new GregorianCalendar(2024,8,12,12,30);
@@ -162,7 +165,7 @@ class CalendarEventTest {
 		weeklyEvent2.scheduleEvent(cal3);
 		GregorianCalendar time1 = new GregorianCalendar(2024,8,19,8,30);
 		GregorianCalendar time2 = new GregorianCalendar(2024,8,25,8,30);
-		GregorianCalendar time3 = new GregorianCalendar(2024,10,29,8,30);
+		GregorianCalendar time3 = new GregorianCalendar(2024,11,5,10,30);
 		
 		assertEquals(weeklyEvent1.getDescription(), cal3.findMeeting(time1).getDescription());
 		assertNull(cal3.findMeeting(time2));
@@ -177,14 +180,6 @@ class CalendarEventTest {
 	
 	@Test
 	void testMultiDayPerWeekEvent() {
-		/**assertEquals("Multi Day Per Week Event", multiDayPerWeekEvent.getDescription());
-		assertEquals("R444", multiDayPerWeekEvent.getLocation());
-		assertEquals(startTime1, multiDayPerWeekEvent.getStartTime());
-		assertEquals(endTime1, multiDayPerWeekEvent.getEndTime());
-		assertEquals(repeatUntil, multiDayPerWeekEvent.getRepeatUntil());
-		assertEquals(days, multiDayPerWeekEvent.getDays());
-		multiDayPerWeekEvent.scheduleEvent(cal);
-		assertEquals(multiDayPerWeekEvent, cal.findMeeting(startTime1));*/
 		
 		MeetingCalendar cal4 = new MeetingCalendar();
 		MultiDayPerWeekEvent multiDayPerWeekEvent = new MultiDayPerWeekEvent("Multi Day Per Week Event1", "R111", startTime1, endTime1, repeatUntil, days);
@@ -195,11 +190,17 @@ class CalendarEventTest {
 		assertEquals(endTime1, multiDayPerWeekEvent.getEndTime());
 		
 		assertEquals(multiDayPerWeekEvent.getDescription(), cal4.findMeeting(startTime1_6).getDescription());
+		
+		//GregorianCalendar endTime6 = new GregorianCalendar(2024,8,16,9,30);
+		
+	//	assertEquals(endTime6, cal4.findMeeting(startTime1_6).getEndTime());
+		
 		assertEquals(multiDayPerWeekEvent.getDescription(), cal4.findMeeting(startTime1_7).getDescription());
 		assertEquals(multiDayPerWeekEvent.getDescription(), cal4.findMeeting(startTime1_8).getDescription());
 		assertEquals(multiDayPerWeekEvent.getDescription(), cal4.findMeeting(startTime1_9).getDescription());
 		assertNull(cal4.findMeeting(startTime1_10));
 		assertNull(cal4.findMeeting(startTime1_11));
+		assertNull(cal4.findMeeting(startTime1_12));
 	
 		MultiDayPerWeekEvent multiDayPerWeekEvent1 = new MultiDayPerWeekEvent("Multi Day Per Week Event2", "R111", startTime1, endTime1, repeatUntil, days);
 		multiDayPerWeekEvent1.scheduleEvent(cal4);
@@ -209,21 +210,5 @@ class CalendarEventTest {
 	
 	
 	
-	/**
-	 * Test method for {@link CalendarEvent#CalendarEvent(java.lang.String, java.lang.String, java.util.GregorianCalendar, java.util.GregorianCalendar)}.
-	 *
-	@Test
-	void testCalendarEventStringStringGregorianCalendarGregorianCalendar() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link CalendarEvent#scheduleEvent(calendar.MeetingCalendar)}.
-	 *
-	@Test
-	void testScheduleEvent() {
-		fail("Not yet implemented");
-	}
-	*/
 
 }
