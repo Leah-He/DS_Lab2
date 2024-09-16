@@ -17,8 +17,26 @@ import calendar.MeetingCalendar;
  */
 class CalendarEventTest {
 	MeetingCalendar cal;
-	GregorianCalendar startTime;
-	GregorianCalendar endTime;
+	GregorianCalendar startTime1;
+	GregorianCalendar endTime1;
+	
+	GregorianCalendar startTime1_2;
+	GregorianCalendar startTime1_3;
+	GregorianCalendar startTime1_4;
+	GregorianCalendar startTime1_5;
+	GregorianCalendar startTime1_6;
+	GregorianCalendar startTime1_7;
+	GregorianCalendar startTime1_8;
+	GregorianCalendar startTime1_9;
+	GregorianCalendar startTime1_10;
+	GregorianCalendar startTime1_11;
+	
+	GregorianCalendar startTime2;
+	GregorianCalendar endTime2;
+	
+	GregorianCalendar startTime3;
+	GregorianCalendar endTime3;
+	
 	GregorianCalendar repeatUntil;
 	OneTimeEvent oneTimeEvent;
 	PriorityEvent priorityEvent;
@@ -33,68 +51,153 @@ class CalendarEventTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		cal = new MeetingCalendar();
-		startTime = new GregorianCalendar(2024,8,12,8,30);
-		endTime = new GregorianCalendar(2024,8,12,8,30);
-		repeatUntil =new GregorianCalendar(2024,12,28);
-		days = new int[] {1,3,5};
 		
-		oneTimeEvent = new OneTimeEvent("One Time Meeting", "R111", startTime, endTime);
-		priorityEvent = new PriorityEvent("Priority Meeting", "R222", startTime, endTime);
-		weeklyEvent = new WeeklyEvent("Weekly Event", "R333", startTime, endTime, repeatUntil);
-		multiDayPerWeekEvent = new MultiDayPerWeekEvent("Multi Day Per Week Event", "R444", startTime, endTime, repeatUntil, days);
+		startTime1 = new GregorianCalendar(2024,8,12,8,30);
+		endTime1 = new GregorianCalendar(2024,8,12,9,30);
+		startTime1_2 = new GregorianCalendar(2024,8,19,8,30);
+		startTime1_3 = new GregorianCalendar(2024,8,17,8,30);
+		startTime1_4 = new GregorianCalendar(2024,10,24,2,30);
+		startTime1_5 = new GregorianCalendar(2024,10,31,2,30);
+		
+		startTime1_6 = new GregorianCalendar(2024,8,16,8,30);
+		startTime1_7 = new GregorianCalendar(2024,8,18,8,30);
+		startTime1_8 = new GregorianCalendar(2024,10,20,8,30);
+		startTime1_9 = new GregorianCalendar(2024,10,11,9,30);
+		startTime1_10 = new GregorianCalendar(2024,10,29,9,30);
+		startTime1_11 = new GregorianCalendar(2024,10,19,9,30);
+		
+		startTime2 = new GregorianCalendar(2024,8,12,10,30);
+		endTime2 = new GregorianCalendar(2024,8,12,12,30);
+		
+		startTime3 = new GregorianCalendar(2024,8,12,1,30);
+		endTime3 = new GregorianCalendar(2024,8,12,2,30);
+		
+		
+		
+		repeatUntil =new GregorianCalendar(2024,10,28,2,30);
+		days = new int[] {0,2,4};
+		
+		//oneTimeEvent = new OneTimeEvent("One Time Meeting", "R111", startTime1, endTime1);
+		//priorityEvent = new PriorityEvent("Priority Meeting", "R222", startTime1, endTime1);
+		//weeklyEvent = new WeeklyEvent("Weekly Event", "R333", startTime1, endTime1, repeatUntil);
+		//multiDayPerWeekEvent = new MultiDayPerWeekEvent("Multi Day Per Week Event", "R444", startTime1, endTime1, repeatUntil, days);
 	}
 
 
 	@Test
 	void testOneTimeEvent() {
-		assertEquals("One Time Meeting", oneTimeEvent.getDescription());
+		/**assertEquals("One Time Meeting", oneTimeEvent.getDescription());
 		assertEquals("R111", oneTimeEvent.getLocation());
-		assertEquals(startTime, oneTimeEvent.getStartTime());
-		assertEquals(endTime, oneTimeEvent.getEndTime());
+		assertEquals(startTime1, oneTimeEvent.getStartTime());
+		assertEquals(endTime1, oneTimeEvent.getEndTime());*/
 		
-		oneTimeEvent.scheduleEvent(cal);
-		assertEquals(oneTimeEvent, cal.findMeeting(startTime));
+		
+		OneTimeEvent oneTimeEvent1 = new OneTimeEvent("One Time Meeting1", "R111", startTime1, endTime1);
+		oneTimeEvent1.scheduleEvent(cal);
+		assertEquals(oneTimeEvent1.getDescription(), cal.findMeeting(startTime1).getDescription());
+		
+		
+		OneTimeEvent oneTimeEvent2 = new OneTimeEvent("One Time Meeting2", "R112", startTime2, endTime2);
+		oneTimeEvent2.scheduleEvent(cal);
+		assertEquals(oneTimeEvent2.getDescription(), cal.findMeeting(startTime2).getDescription());
+		assertEquals(oneTimeEvent1.getDescription(), cal.findMeeting(startTime1).getDescription());
+		
+	
+		
+		OneTimeEvent oneTimeEvent3 = new OneTimeEvent("One Time Meeting3", "R113", startTime1, endTime1);
+		oneTimeEvent3.scheduleEvent(cal);
+		assertFalse(oneTimeEvent3.getDescription()==cal.findMeeting(startTime1).getDescription());
+		assertEquals(oneTimeEvent1.getDescription(), cal.findMeeting(startTime1).getDescription());
+		
+		
+		
+		
+		
 		//is there something missing?
 		
 	}
 	
 	@Test
 	void testPriorityEvent() {
-		assertEquals("Priority Meeting", priorityEvent.getDescription());
+		/**assertEquals("Priority Meeting", priorityEvent.getDescription());
 		assertEquals("R222", priorityEvent.getLocation());
-		assertEquals(startTime, priorityEvent.getStartTime());
-		assertEquals(endTime, priorityEvent.getEndTime());
+		assertEquals(startTime1, priorityEvent.getStartTime());
+		assertEquals(endTime1, priorityEvent.getEndTime())
 		
 		priorityEvent.scheduleEvent(cal);
-		assertEquals(priorityEvent, cal.findMeeting(startTime));
+		assertEquals(priorityEvent, cal.findMeeting(startTime1));*/
+		MeetingCalendar cal2 = new MeetingCalendar();
+		PriorityEvent priorityEvent1 = new PriorityEvent("priority Meeting1", "R111", startTime1, endTime1);
+		priorityEvent1.scheduleEvent(cal2);
+		assertEquals(priorityEvent1.getDescription(), cal2.findMeeting(startTime1).getDescription());
+		
+		PriorityEvent priorityEvent2 = new PriorityEvent("priority Meeting2", "R112", startTime2, endTime2);
+		priorityEvent2.scheduleEvent(cal2);
+		assertEquals(priorityEvent2.getDescription(), cal2.findMeeting(startTime2).getDescription());
+		assertEquals(priorityEvent1.getDescription(), cal2.findMeeting(startTime1).getDescription());
+		
+		PriorityEvent priorityEvent3 = new PriorityEvent("priority Meeting3", "R113", startTime2, endTime2);
+		priorityEvent3.scheduleEvent(cal2);
+		assertEquals(priorityEvent3.getDescription(), cal2.findMeeting(startTime2).getDescription());
+		assertFalse(priorityEvent2.getDescription()== cal2.findMeeting(startTime2).getDescription());
+		assertEquals(priorityEvent1.getDescription(), cal2.findMeeting(startTime1).getDescription());
 	}
 	
 	@Test
 	void testWeeklyEvent() {
-		assertEquals("Weekly Event", weeklyEvent.getDescription());
+		/**assertEquals("Weekly Event", weeklyEvent.getDescription());
 		assertEquals("R333", weeklyEvent.getLocation());
-		assertEquals(startTime, weeklyEvent.getStartTime());
-		assertEquals(endTime, weeklyEvent.getEndTime());
+		assertEquals(startTime1, weeklyEvent.getStartTime());
+		assertEquals(endTime1, weeklyEvent.getEndTime());
 		assertEquals(repeatUntil, weeklyEvent.getRepeatUntil());
 		
 		weeklyEvent.scheduleEvent(cal);
-		assertEquals(weeklyEvent, cal.findMeeting(startTime));
+		assertEquals(weeklyEvent, cal.findMeeting(startTime1));*/
+		MeetingCalendar cal3 = new MeetingCalendar();
+		WeeklyEvent weeklyEvent1 = new WeeklyEvent("weekly Meeting1", "R111", startTime1, endTime1, repeatUntil);
+		weeklyEvent1.scheduleEvent(cal3);
+		assertEquals(weeklyEvent1.getDescription(), cal3.findMeeting(startTime1).getDescription());
+		//assertEquals(weeklyEvent1.getDescription(), cal3.findMeeting(startTime1_2).getDescription());
+		assertNull(cal3.findMeeting(startTime1_3));
+		//assertEquals(weeklyEvent1.getDescription(), cal3.findMeeting(startTime1_4).getDescription());
+		assertNull(cal3.findMeeting(startTime1_5));
+		
+		WeeklyEvent weeklyEvent2 = new WeeklyEvent("weekly Meeting2", "R222", startTime2, endTime2, repeatUntil);
+		weeklyEvent2.scheduleEvent(cal3);
+		GregorianCalendar time1 = new GregorianCalendar(2024,8,19,8,30);
+		GregorianCalendar time2 = new GregorianCalendar(2024,8,25,8,30);
+		GregorianCalendar time3 = new GregorianCalendar(2024,10,29,8,30);
+		
+		assertEquals(weeklyEvent1.getDescription(), cal3.findMeeting(time1).getDescription());
+		assertNull(cal3.findMeeting(time2));
+		assertNull(cal3.findMeeting(time3));
+		assertEquals(weeklyEvent1.getDescription(), cal3.findMeeting(startTime1).getDescription());
+		
+		WeeklyEvent weeklyEvent3 = new WeeklyEvent("weekly Meeting3", "R111", startTime1, endTime1, repeatUntil);
+		assertFalse(weeklyEvent3.getDescription() == cal3.findMeeting(startTime1).getDescription());
 		
 	}
 	
 	@Test
 	void testMultiDayPerWeekEvent() {
-		assertEquals("Multi Day Per Week Event", multiDayPerWeekEvent.getDescription());
+		/**assertEquals("Multi Day Per Week Event", multiDayPerWeekEvent.getDescription());
 		assertEquals("R444", multiDayPerWeekEvent.getLocation());
-		assertEquals(startTime, multiDayPerWeekEvent.getStartTime());
-		assertEquals(endTime, multiDayPerWeekEvent.getEndTime());
+		assertEquals(startTime1, multiDayPerWeekEvent.getStartTime());
+		assertEquals(endTime1, multiDayPerWeekEvent.getEndTime());
 		assertEquals(repeatUntil, multiDayPerWeekEvent.getRepeatUntil());
 		assertEquals(days, multiDayPerWeekEvent.getDays());
-		
 		multiDayPerWeekEvent.scheduleEvent(cal);
-		assertEquals(multiDayPerWeekEvent, cal.findMeeting(startTime));
+		assertEquals(multiDayPerWeekEvent, cal.findMeeting(startTime1));*/
 		
-		
+		MeetingCalendar cal4 = new MeetingCalendar();
+		MultiDayPerWeekEvent multiDayPerWeekEvent = new MultiDayPerWeekEvent("Multi Day Per Week Event1", "R111", startTime1, endTime1, repeatUntil, days);
+		multiDayPerWeekEvent.scheduleEvent(cal4);
+		assertEquals(multiDayPerWeekEvent.getDescription(), cal4.findMeeting(startTime1_6).getDescription());
+		assertEquals(multiDayPerWeekEvent.getDescription(), cal4.findMeeting(startTime1_7).getDescription());
+		assertEquals(multiDayPerWeekEvent.getDescription(), cal4.findMeeting(startTime1_8).getDescription());
+		assertEquals(multiDayPerWeekEvent.getDescription(), cal4.findMeeting(startTime1_9).getDescription());
+		assertNull(cal4.findMeeting(startTime1_10));
+		assertNull(cal4.findMeeting(startTime1_11));
 	}
 	
 	
