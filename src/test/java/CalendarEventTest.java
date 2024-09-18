@@ -153,7 +153,7 @@ class CalendarEventTest {
 		WeeklyEvent weeklyEvent1 = new WeeklyEvent("weekly Meeting1", "R111", startTime1, endTime1, repeatUntil);
 		weeklyEvent1.scheduleEvent(cal3);
 		assertEquals("weekly Meeting1", weeklyEvent1.getDescription());
-		assertEquals("R111", weeklyEvent1.getLocation());
+		assertEquals("R111", weeklyEvent1.getLocation()); //xiang zhihou
 		assertEquals(startTime1, weeklyEvent1.getStartTime());
 		assertEquals(endTime1, weeklyEvent1.getEndTime());
 		

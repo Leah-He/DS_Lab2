@@ -1,5 +1,6 @@
 import java.util.GregorianCalendar;
 
+import calendar.Meeting;
 import calendar.MeetingCalendar;
 
 public class OneTimeEvent extends CalendarEvent{
@@ -17,6 +18,8 @@ public class OneTimeEvent extends CalendarEvent{
 	@Override
 	public void scheduleEvent(MeetingCalendar calendar) {
 		// TODO Auto-generated method stub
+		Meeting newMeeting = new Meeting(getDescription(), getLocation(),getStartTime(), getEndTime());
+		calendar.addMeeting(newMeeting);
 		
 	}
 }

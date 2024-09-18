@@ -1,5 +1,6 @@
 import java.util.GregorianCalendar;
 
+import calendar.Meeting;
 import calendar.MeetingCalendar;
 
 public class WeeklyEvent extends CalendarEvent{
@@ -30,7 +31,8 @@ public class WeeklyEvent extends CalendarEvent{
 	@Override
 	public void scheduleEvent(MeetingCalendar calendar) {
 		// TODO Auto-generated method stub
-		
+		Meeting newMeeting = new Meeting(getDescription(), getLocation(), getStartTime(), getEndTime(), getRepeatUntil());
+		calendar.addMeeting(newMeeting);
 	}
 
 }

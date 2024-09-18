@@ -1,5 +1,6 @@
 import java.util.GregorianCalendar;
 
+import calendar.Meeting;
 import calendar.MeetingCalendar;
 
 public class PriorityEvent extends CalendarEvent{
@@ -18,6 +19,11 @@ public class PriorityEvent extends CalendarEvent{
 	@Override
 	public void scheduleEvent(MeetingCalendar calendar) {
 		// TODO Auto-generated method stub
+		Meeting newMeeting = new Meeting(getDescription(), getLocation(), getStartTime(), getEndTime());
+		calendar.addMeeting(newMeeting);
+		//should I use find meeting here?
+		calendar.doesMeetingConflict(newMeeting);
+		calendar.removeMeeting(newMeeting);
 		
 	}
 

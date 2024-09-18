@@ -8,6 +8,8 @@ public abstract class CalendarEvent {
 	/**
 	 * @return the description
 	 */
+	
+	
 	public String getDescription() {
 		return description;
 	}

@@ -1,5 +1,6 @@
 import java.util.GregorianCalendar;
 
+import calendar.Meeting;
 import calendar.MeetingCalendar;
 
 public class MultiDayPerWeekEvent extends CalendarEvent{
@@ -40,7 +41,10 @@ public class MultiDayPerWeekEvent extends CalendarEvent{
 	@Override
 	public void scheduleEvent(MeetingCalendar calendar) {
 		// TODO Auto-generated method stub
-		
+		Meeting newMeeting = new Meeting(getDescription(), getLocation(),getStartTime(), getEndTime(), getRepeatUntil(), getDays());
+		calendar.addMeeting(newMeeting);
+		calendar.doesMeetingConflict(newMeeting);
+		calendar.removeMeeting(newMeeting);
 	}
 
 }
